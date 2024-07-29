@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('ideas', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable()->comment('title ideas');
+            $table->string('tag',70)->comment('types of ideas');
+            $table->longText('description')->nullable()->comment('description of ideas');
+            $table->string('tool')->comment('tools of ideas');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

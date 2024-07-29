@@ -12,12 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('projects', function (Blueprint $table) {
-            $table->id()->first();
+            $table->id();
             $table->string('title')->nullabe()->comment();
             $table->string('stack')->comments();
             $table->longText('description')->comment();
             $table->string('link_repo',2555)->comment();
-            $table->longText('activities')->comment();
+            $table->longText('activity')->comment();
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

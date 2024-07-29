@@ -24,15 +24,16 @@
                         <div class="hidden md:block">
                             <div class="ml-10 flex items-baseline space-x-4">
                                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                                <a href="#"
-                                    class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
+                                <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
                                     aria-current="page">Dashboard</a>
-                                <a href="/"
-                                    class="{{ request()->is('/') ? 'bg-gray-700 text-white':'text-gray-300 hover:bg-gray-700 hover:text-white'}}rounded-md px-3 py-2 text-sm font-medium">Home</a>
-                                <a href="/about"
-                                    class="{{request()->is('about') ?'bg-gray-700 text-white' :'text-gray-300 hover:bg-gray-700 hover:text-white'}}rounded-md px-3 py-2 text-sm font-medium ">About</a>
-                                <a href="/contact"
-                                    class="{{ request()->is('contact')? 'bg-gray-700 text-white':'text-gray-300 hover:bg-gray-700 hover:text-white'}}rounded-md px-3 py-2 text-sm font-medium ">Contact</a>
+                                <a href="#"
+                                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
+                                <a href="#"
+                                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
+                                <a href="#"
+                                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
+                                <a href="#"
+                                    class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Reports</a>
                             </div>
                         </div>
                     </div>
@@ -63,6 +64,16 @@
                                     </button>
                                 </div>
 
+                                <!--
+                      Dropdown menu, show/hide based on menu state.
+
+                      Entering: "transition ease-out duration-100"
+                        From: "transform opacity-0 scale-95"
+                        To: "transform opacity-100 scale-100"
+                      Leaving: "transition ease-in duration-75"
+                        From: "transform opacity-100 scale-100"
+                        To: "transform opacity-0 scale-95"
+                    -->
                                 <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                                     role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button"
                                     tabindex="-1">
@@ -158,7 +169,7 @@
         </header>
         <main>
             <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                {{$slot}}
+                {{ $slot }}
             </div>
         </main>
     </div>

@@ -17,12 +17,13 @@
         <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
 
             {{-- TODO: form - configure form login and autenticate --}}
-            <form class="space-y-6" action="{{ route('login')}}" method="POST">
+            <form class="space-y-6" method="POST" action="{{route('login.authenticate')}}" >
+                @csrf
                 <div>
                     <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email
                         address</label>
                     <div class="mt-2">
-                        <input id="email" name="email" type="email" autocomplete="email" required
+                        <input id="email" name="email" type="email" autocomplete="email" 
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-gray-600 sm:text-sm sm:leading-6">
                     </div>
                 </div>
@@ -50,7 +51,7 @@
 
             <p class="mt-10 text-sm text-center text-gray-500">
                 Not a member?
-                <a href="#" class="font-semibold leading-6 text-gray-600 hover:text-gray-500">Register</a>
+                <a href="{{route('register.view')}}" class="font-semibold leading-6 text-gray-600 hover:text-gray-500">Register</a>
             </p>
         </div>
     </div>

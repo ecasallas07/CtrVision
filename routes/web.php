@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\RegisterController as RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,19 +15,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('home');
-// });
 
-Route::get('/', function () {
-    return view('login');
+
+
+
+
+
+Route::group(['middleware'=> 'guest'], function(){
+
+    Route::get('/register',[RegisterController::class,'index'])->name('register.view');
+    Route::post('/register/save',[RegisterController::class,'store'])->name('register.save');
+    Route::get('/',[AuthController::class,'index'])->name('login.view');
+    Route::post('/login',[AuthController::class,'login'])->name('login.authenticate');
+
 });
 
-Route::get('/register',function(){
-    return view('register');
+
+Route::group(['middleware'=>'auth'],function(){
+
+    Route::get('/dashboard',function()
+    {
+        return view('dashboard');
+    });
+
 });
 
-Route::post('/register/save', function()
-{
-    dd('request');
-})->name('register.save');
+
+

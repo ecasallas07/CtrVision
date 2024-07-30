@@ -13,8 +13,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use SoftDeletes;
-    use Notifiable;
+    // use SoftDeletes;
+    // use Notifiable;
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -24,6 +24,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $fillable = [
         'name',
+        'username',
         'email',
         'password',
     ];
@@ -50,10 +51,6 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
 
-    public function setPaswordHash()
-    {
-        $this->attributes['password'] = bcrypt($this->password);
-    }
 
 
     // TODO: Relation One to One with Phone

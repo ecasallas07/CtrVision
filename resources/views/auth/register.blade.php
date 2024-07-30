@@ -20,14 +20,21 @@
                     </p>
 
                     <div class="grid grid-cols-1 mt-10 gap-x-6 gap-y-8 sm:grid-cols-6">
-                        <div class="sm:col-span-3">
-                            <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Full name</label>
+                        <div class="sm:col-span-2">
+                            <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Full name</label>
                             <div class="mt-2">
-                                <input type="text" name="first-name" id="first-name" autocomplete="given-name"
+                                <input type="text" name="name" id="first-name" autocomplete="given-name"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                             </div>
                         </div>
 
+                        <div class="sm:col-span-2">
+                            <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
+                            <div class="mt-2">
+                                <input type="text" name="username" id="first-name" autocomplete="given-name"
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                            </div>
+                        </div>
 
                         <div class="sm:col-span-2">
                             <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email
@@ -36,7 +43,7 @@
                                 class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                                 <span
                                     class="flex items-center pl-3 text-gray-500 select-none sm:text-sm">gmail.com/</span>
-                                <input type="text" name="username" id="username" autocomplete="username"
+                                <input type="email" name="email" id="username" autocomplete="email"
                                     class="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                                     placeholder="user@gmail.com">
                             </div>
@@ -45,20 +52,20 @@
 
 
                         <div class="col-span-3">
-                            <label for="street-address" class="block text-sm font-medium leading-6 text-gray-900">Password
+                            <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password
                                 </label>
                             <div class="mt-2">
-                                <input type="password" name="street-address" id="street-address"
+                                <input type="password" name="password" id="street-address"
                                     autocomplete="street-address"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                             </div>
                         </div>
                         <div class="col-span-3">
-                            <label for="street-address" class="block text-sm font-medium leading-6 text-gray-900">Password Confirmation
+                            <label for="confirm-password" class="block text-sm font-medium leading-6 text-gray-900">Password Confirmation
                                 </label>
                             <div class="mt-2">
-                                <input type="password" name="street-address" id="street-address"
-                                    autocomplete="street-address"
+                                <input type="password" name="confirm-password" id="street-address"
+                                    autocomplete="confirm-password"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                             </div>
                         </div>

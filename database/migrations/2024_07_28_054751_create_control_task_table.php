@@ -14,7 +14,7 @@ return new class extends Migration
 
     public function up(): void
     {
-        Schema::create('control_task', function (Blueprint $table) {
+        Schema::create('control_tasks', function (Blueprint $table) {
             $table->id();
             $table->date('day')->nullable()->comment('day of the week');
             $table->string('activity')->nullable()->comment('activities of day');

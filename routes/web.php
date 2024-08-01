@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\RegisterController as RegisterController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\IdeaController;
+use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,10 +36,13 @@ Route::group(['middleware'=> 'guest'], function(){
 
 Route::group(['middleware'=>'auth'],function(){
 
-    Route::get('/dashboard',function()
-    {
-        return view('dashboard');
-    });
+    Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard.view');
+
+    Route::get('/createproject',[ProjectController::class,'create_view'])->name('project.create.view');
+
+    Route::get('/projects',[ProjectController::class,'index'])->name('project.view');
+
+    Route::get('/ideas',[IdeaController::class,'index'])->name('idea.view');
 
 });
 

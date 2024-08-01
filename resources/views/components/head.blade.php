@@ -6,4 +6,5 @@
 
     {{-- render tailwind class --}}
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/33a54e7afe.js" crossorigin="anonymous"></script>
 </head>

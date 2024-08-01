@@ -27,7 +27,7 @@ class AuthController extends Controller
         {
             $request->session()->regenerate();
 
-            return redirect('/dashboard')->with('success', 'Login Success');
+            return redirect('/dashboard')->with('success', 'Login Success');    
         }
 
 

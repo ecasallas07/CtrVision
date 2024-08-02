@@ -6,6 +6,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Http;
+use App\Http\Controllers\GitHubController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,14 +24,13 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
-
 Route::group(['middleware'=> 'guest'], function(){
 
     Route::get('/register',[RegisterController::class,'index'])->name('register.view');
     Route::post('/register/save',[RegisterController::class,'store'])->name('register.save');
     Route::get('/',[AuthController::class,'index'])->name('login.view');
     Route::post('/login',[AuthController::class,'login'])->name('login.authenticate');
+
 
 });
 
@@ -43,6 +44,8 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/projects',[ProjectController::class,'index'])->name('project.view');
 
     Route::get('/ideas',[IdeaController::class,'index'])->name('idea.view');
+    
+    Route::get('/repositories',[GitHubController::class,'show'])->name('repository.view');
 
 });
 

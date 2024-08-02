@@ -37,9 +37,9 @@
                         <p class="mt-5 text-sm leading-6 text-gray-600 line-clamp-3">Number of repositories created in github, and that are related to the projects..</p>
                     </div>
                     <div class="relative flex items-center mt-8 text-center gap-x-4 ">
-                        <i class="fa-solid fa-list-check" style="font-size: 50px;" ></i>
+                        <a href="{{route('repository.view')}}"><i class="fa-solid fa-list-check" style="font-size: 50px;" ></i></a>
                         <div class="text-sm leading-6">
-                            <p class="font-semibold text-gray-900">10</p>
+                            <p class="font-semibold text-gray-900">{{$count}}</p>
                         </div>
                     </div>
                 </article>
@@ -57,7 +57,7 @@
                     <div class="relative flex items-center mt-8 text-center gap-x-4 ">
                         <i class="fa-solid fa-database" style="font-size: 50px;" ></i>
                         <div class="text-sm leading-6">
-                            <p class="font-semibold text-gray-900">10</p>
+                            <p class="font-semibold text-gray-900"></p>
                         </div>
                     </div>
                 </article>

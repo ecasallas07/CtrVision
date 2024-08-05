@@ -15,4 +15,9 @@ class ProjectController extends Controller
     {
         return view('create_project');
     }
+
+    public function create(Request $request)
+    {
+        
+    }
 }

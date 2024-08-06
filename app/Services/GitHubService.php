@@ -2,13 +2,20 @@
 
 
 namespace App\Services;
+
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 
 
 class GitHubService
 {
-    // TODO: repair variables enviorement
-    protected $token= env('TOKEN_GIT');
+
+    protected $token;
+
+    public function __construct()
+    {
+        $this->token= env('TOKEN_GIT');
+    }
 
 
     public function show_repositories($username)

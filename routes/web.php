@@ -39,12 +39,22 @@ Route::group(['middleware'=>'auth'],function(){
 
     Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard.view');
 
+
+    // Routes projects
     Route::get('/createproject',[ProjectController::class,'create_view'])->name('project.create.view');
-
     Route::get('/projects',[ProjectController::class,'index'])->name('project.view');
+    Route::post('/projects/create',[ProjectController::class,'create'])->name('project.create');
+    Route::put('/projects/edit/{id}',[ProjectController::class,'edit'])->name('project.edit');
+    Route::delete('/projects/delete/{id}',[ProjectController::class,'delete'])->name('project.delete');
+    Route::get('/projects/modal/edit/{id}',[ProjectController::class,'modal'])->name('project.edit.modal');
 
+    //Routes Ideas
     Route::get('/ideas',[IdeaController::class,'index'])->name('idea.view');
-    
+    Route::post('/ideas/create',[IdeaController::class,'create'])->name('idea.create');
+    Route::put('/ideas/edit/{id}',[IdeaController::class,'edit'])->name('idea.edit');
+    Route::delete('/ideas/delete/{id}',[IdeaController::class,'delete'])->name('idea.delete');
+
+    // Routes repositories
     Route::get('/repositories',[GitHubController::class,'show'])->name('repository.view');
 
 });

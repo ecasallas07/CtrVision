@@ -20,17 +20,19 @@ class ProjectController extends Controller
 
     public function create(Request $request)
     {
+        // dd($request);
         $validate = $request->validate(
             [
-                'title'=> 'required|string|max:100',
-                'description'=> 'required|string|255',
+                'title'=> 'required|max:100',
+                'description'=> 'required|string|max:255',
                 'stack' => 'required|string',
-                'link' => 'required|string',
-                'activities'=> 'required|255|string'
-            ]
-        );
-
-        Project::create($validate);
+                'link_repo' => 'required|string',
+                'activity'=> 'required|max:255|string',
+                'user_id' => 'required'
+                ]
+            );
+        $data= Project::create($validate);
+        // dd($data);
         return redirect('/projects');
     }
 
@@ -56,5 +58,11 @@ class ProjectController extends Controller
         }else{
             return redirect('/projects');
         }
+    }
+
+    public function delete($id)
+    {
+        $project = Project::deleted($id);
+        return $project;
     }
 }

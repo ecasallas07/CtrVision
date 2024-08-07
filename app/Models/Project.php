@@ -11,7 +11,7 @@ class Project extends Model
 {
 
     // When models are soft deleted, they are not actually removed from your database. Instead, a deleted_at attribute is set on the model indicating the date and time at which the model was "deleted".
-    use SoftDeletes;
+    // use SoftDeletes;
 
     use HasFactory;
 
@@ -21,7 +21,7 @@ class Project extends Model
         'description',
         'link_repo',
         'activity',
-        'user_id', 
+        'user_id',
     ];
 
     // TODO: Relation One to Many with User, in tis case in inverse

@@ -1,11 +1,15 @@
 <x-layout>
 
-    <form>
+    <form  action="{{route('project.create')}}" method="POST">
+        @csrf
         <div class="space-y-12">
             <div class="pb-12 border-b border-gray-900/10">
                 <h2 class="text-base font-semibold leading-7 text-gray-900">Project</h2>
                 <p class="mt-1 text-sm leading-6 text-gray-600">This information allows you to create a project in an organized and structured way.</p>
 
+                {{-- id --}}
+
+                <input name="user_id" type="hidden" value="{{ auth()->user()->id }}">
                 <div class="grid grid-cols-1 mt-10 gap-x-6 gap-y-8 sm:grid-cols-6">
                     <div class="sm:col-span-4">
                         <label for="tiel" class="block text-sm font-medium leading-6 text-gray-900">Title</label>
@@ -44,16 +48,16 @@
 
 
                     <div class="sm:col-span-4">
-                        <label for="link" class="block text-sm font-medium leading-6 text-gray-900">Link Repository</label>
+                        <label for="link_repo" class="block text-sm font-medium leading-6 text-gray-900">Link Repository</label>
                         <div class="mt-2">
-                            <input id="email" name="link" type="text" autocomplete="email"
+                            <input id="email" name="link_repo" type="text" autocomplete="email"
                                 class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                         </div>
                     </div>
                     <div class="col-span-full">
-                        <label for="activities" class="block text-sm font-medium leading-6 text-gray-900">Activities</label>
+                        <label for="activity" class="block text-sm font-medium leading-6 text-gray-900">Activities</label>
                         <div class="mt-2">
-                            <textarea id="activities" name="activities" rows="3"
+                            <textarea id="activities" name="activity" rows="3"
                                 class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
                         </div>
                         <p class="mt-3 text-sm leading-6 text-gray-600">Write the activities project.</p>

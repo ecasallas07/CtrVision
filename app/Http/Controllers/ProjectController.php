@@ -20,7 +20,6 @@ class ProjectController extends Controller
 
     public function create(Request $request)
     {
-        // dd($request);
         $validate = $request->validate(
             [
                 'title'=> 'required|max:100',
@@ -32,15 +31,17 @@ class ProjectController extends Controller
                 ]
             );
         $data= Project::create($validate);
-        // dd($data);
+
         return redirect('/projects');
     }
 
 
-    public function modal_edit($id)
+    public function edit(Request $request,$id)
     {
-        $project_specific = Project::find($id);
-        return view('project.edit.modal')->with('project_specific', $project_specific);
+        dd($request->all());
+        $project = Project::find($id);
+        $project->update($request->all());
+        return redirect()->route('project.view');
     }
 
     public function update(Request $request, $id)
@@ -60,9 +61,10 @@ class ProjectController extends Controller
         }
     }
 
-    public function delete($id)
+    public function delete(Request $request,Project $id)
     {
-        $project = Project::deleted($id);
-        return $project;
+        dd($id);
+        $id->delete();
+        return redirect()->route('project.view');
     }
 }

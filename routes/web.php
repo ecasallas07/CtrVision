@@ -46,7 +46,6 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('/projects/create',[ProjectController::class,'create'])->name('project.create');
     Route::put('/projects/edit/{id}',[ProjectController::class,'edit'])->name('project.edit');
     Route::delete('/projects/delete/{id}',[ProjectController::class,'delete'])->name('project.delete');
-    Route::get('/projects/modal/edit/{id}',[ProjectController::class,'modal'])->name('project.edit.modal');
 
     //Routes Ideas
     Route::get('/ideas',[IdeaController::class,'index'])->name('idea.view');

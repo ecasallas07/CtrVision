@@ -36,10 +36,11 @@ class ProjectController extends Controller
     }
 
 
-    public function edit(Request $request,$id)
+    public function edit(Request $request,string $id)
     {
-        dd($request->all());
+
         $project = Project::find($id);
+        dd($project);
         $project->update($request->all());
         return redirect()->route('project.view');
     }

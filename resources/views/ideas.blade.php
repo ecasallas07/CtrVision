@@ -3,11 +3,6 @@
 
 <div class="bg-white">
     <div>
-        <!--
-        Mobile filter dialog
-
-        Off-canvas filters for mobile, show/hide based on off-canvas filters state.
-      -->
         <div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
             <!--
           Off-canvas menu backdrop, show/hide based on off-canvas menu state.
@@ -36,17 +31,6 @@
 
                 <div class="flex items-center">
                     <div class="relative inline-block text-left">
-
-                        <!--
-                Dropdown menu, show/hide based on menu state.
-
-                Entering: "transition ease-out duration-100"
-                  From: "transform opacity-0 scale-95"
-                  To: "transform opacity-100 scale-100"
-                Leaving: "transition ease-in duration-75"
-                  From: "transform opacity-100 scale-100"
-                  To: "transform opacity-0 scale-95"
-              -->
                     </div>
                     <button type="button" class="p-2 ml-4 -m-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden">
                         <span class="sr-only">Filters</span>
@@ -64,19 +48,17 @@
 
                 <div class="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
                     <!-- TODO: FORM -->
-                    <form class="hidden lg:block">
+                    <form class="hidden lg:block" action="{{ route('idea.create') }}" method="POST">
+                        @csrf
                         <h3 class="sr-only">Categories</h3>
                         <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-1">
                             <div>
-                                <label for="first-name" class="block text-sm font-semibold leading-6 text-gray-900">Title</label>
+                                <label for="title" class="block text-sm font-semibold leading-6 text-gray-900">Title</label>
                                 <div class="mt-2.5">
-                                    <input type="text" name="first-name" id="first-name" autocomplete="given-name"
+                                    <input type="text" name="title" id="first-name" autocomplete="given-name"
                                         class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
 
-
-                            </div>
-                            <div>
                             </div>
                             <div class="sm:col-span-2">
                                 <label for="tag" class="block text-sm font-semibold leading-6 text-gray-900">Tag</label>
@@ -87,18 +69,18 @@
 
                             </div>
                             <div class="sm:col-span-2">
-                                <label for="first-name" class="block text-sm font-semibold leading-6 text-gray-900">Tools</label>
+                                <label for="tools" class="block text-sm font-semibold leading-6 text-gray-900">Tools</label>
                                 <div class="mt-2.5">
-                                    <input type="text" name="first-name" id="first-name" autocomplete="given-name"
+                                    <input type="text" name="tools" id="first-name" autocomplete="given-name"
                                         class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
                             </div>
 
 
                             <div class="sm:col-span-2">
-                                <label for="message" class="block text-sm font-semibold leading-6 text-gray-900">Description</label>
+                                <label for="description" class="block text-sm font-semibold leading-6 text-gray-900">Description</label>
                                 <div class="mt-2.5">
-                                    <textarea name="message" id="message" rows="4"
+                                    <textarea name="description" id="message" rows="4"
                                         class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
                                 </div>
                             </div>

@@ -19,8 +19,9 @@ class IdeaController extends Controller
             [
                 'title' => 'required',
                 'tag' => 'required',
-                'tools' => 'required',
+                'tool' => 'required',
                 'description' => 'required',
+                'user_id' => 'required',
             ]
         );
         $data= Idea::create($data);

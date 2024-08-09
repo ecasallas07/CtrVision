@@ -35,12 +35,12 @@
                             <!-- Profile dropdown -->
                             <div class="relative ml-3">
                                 <div>
-                                    <button type="button"
+                                    <a href="{{route('logout.view')}}" type="button"
                                         class="relative flex items-center max-w-xs text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                        id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                        id="user-menu-button">
                                         <i class="fa-solid fa-user-ninja"
                                             style="font-size: 80px;backgorund-color:white;"></i>
-                                    </button>
+                                    </a>
                                     <p class="text-center">{{ auth()->user()->name }}</p>
                                 </div>
 

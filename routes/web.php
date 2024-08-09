@@ -8,7 +8,7 @@ use App\Http\Controllers\ProjectController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\GitHubController;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +30,7 @@ Route::group(['middleware'=> 'guest'], function(){
     Route::post('/register/save',[RegisterController::class,'store'])->name('register.save');
     Route::get('/',[AuthController::class,'index'])->name('login.view');
     Route::post('/login',[AuthController::class,'login'])->name('login.authenticate');
+    Route::get('/logout',[AuthController::class,'logout'])->name('logout.view');
 
 
 });
@@ -55,6 +56,8 @@ Route::group(['middleware'=>'auth'],function(){
 
     // Routes repositories
     Route::get('/repositories',[GitHubController::class,'show'])->name('repository.view');
+
+    // Route logout
 
 });
 

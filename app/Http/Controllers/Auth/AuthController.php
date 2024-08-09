@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
@@ -27,12 +27,21 @@ class AuthController extends Controller
         {
             $request->session()->regenerate();
 
-            return redirect('/dashboard')->with('success', 'Login Success');    
+            return redirect('/dashboard')->with('success', 'Login Success');
         }
 
 
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
+    }
+
+    public function logout()
+    {
+        // dd(session()->all());
+        Auth::logout();
+        // $request->session()->invalidate();
+        // $request->session()->regenerate();
+        return redirect('/login')->with('success', 'Logout Success');
     }
 }

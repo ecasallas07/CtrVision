@@ -50,6 +50,7 @@
                     <!-- TODO: FORM -->
                     <form class="hidden lg:block" action="{{ route('idea.create') }}" method="POST">
                         @csrf
+                        <input type="hidden" name="user_id" value="{{ auth()->user()->id}}">
                         <h3 class="sr-only">Categories</h3>
                         <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-1">
                             <div>
@@ -71,7 +72,7 @@
                             <div class="sm:col-span-2">
                                 <label for="tools" class="block text-sm font-semibold leading-6 text-gray-900">Tools</label>
                                 <div class="mt-2.5">
-                                    <input type="text" name="tools" id="first-name" autocomplete="given-name"
+                                    <input type="text" name="tool" id="first-name" autocomplete="given-name"
                                         class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                 </div>
                             </div>
@@ -94,7 +95,27 @@
 
                     <!-- Product grid -->
                     <div class="lg:col-span-3">
-                        <x-ideas></x-ideas>
+
+                        <ul role="list" class="p-4 divide-y divide-gray-100 hover:bg-gray-100">
+                            @foreach($idea as $ele)
+                                <li class="flex justify-between py-5 gap-x-6">
+                                    <div class="flex min-w-0 gap-x-4">
+                                        <i class="fa-solid fa-sheet-plastic" style="font-size: 60px; "></i>
+                                        <div class="flex-auto min-w-0">
+                                            <p class="text-sm font-semibold leading-6 text-gray-900">{{$ele->title}}</p>
+                                            <p class="mt-1 text-xs leading-5 text-gray-500 truncate">{{$ele->tag}}</p>
+                                            <p class="">{{$ele->description}}</p
+                                        </div>
+                                    </div>
+                                    <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+                                        <p class="text-sm leading-6 text-gray-900"{{$ele->tool}}</p>
+                                        <a href="#"><i class="fa-brands fa-github" style="font-size: 30px;"></i></a>
+                                    </div>
+                                </li>
+                            @endforeach
+
+                        </ul>
+
                     </div>
                 </div>
             </section>

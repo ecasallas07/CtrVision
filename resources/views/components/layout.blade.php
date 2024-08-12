@@ -146,34 +146,14 @@
 
 </body>
 <script>
-    function toggleModal(button) {
-
-
-        let id = button.getAttribute('data-id');
-        let title = button.getAttribute('data-title');
-        let description = button.getAttribute('data-description');
-        let link = button.getAttribute('data-link');
-        let stack = button.getAttribute('data-stack');
-
-        // test
-        console.log(title, description, link)
-
-        document.getElementById('modal-id').value = id;
-        document.getElementById('modal-id-title').value = title;
-        document.getElementById('modal-id-description').value = description;
-        document.getElementById('modal-id-link').value = link;
-        document.getElementById('modal-id-stack').value = stack;
-
-
-        document.getElementById('modal-form').action = `http://127.0.0.1:8000/projects/edit/${id}`;
-
-        document.getElementById('modal').classList.toggle('hidden')
-
+    function toggleModal(num) {
+        console.log(num)
+        document.getElementById('editProject'+ num).classList.toggle('hidden')
     }
 
     function closeModal()
     {
-        document.getElementById('modal').classList.toggle('hidden')
+        document.getElementById('editProject').classList.toggle('hidden')
     }
 </script>
 
